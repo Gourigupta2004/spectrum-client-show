@@ -32,22 +32,18 @@ export function Footer() {
             </li>
             <li>
               <Link
-                to="/"
-                hash="how"
+                to="/how-it-works"
                 className="text-foreground transition-colors hover:text-teal"
               >
                 How It Works
               </Link>
             </li>
             <li>
-              <Link
-                to="/"
-                hash="contact"
-                className="text-foreground transition-colors hover:text-teal"
-              >
+              <Link to="/contact" className="text-foreground transition-colors hover:text-teal">
                 Contact
               </Link>
             </li>
+
           </ul>
         </div>
 
