@@ -70,7 +70,7 @@ export function SpectrumNav() {
                 <Link
                   key={l.label}
                   to={l.to}
-                  hash={l.hash}
+                  {...(l.hash ? { hash: l.hash } : {})}
                   className="group relative font-display text-[0.72rem] uppercase tracking-[0.22em] text-foreground/90 transition-colors hover:text-foreground"
                 >
                   {l.label}
@@ -125,7 +125,7 @@ export function SpectrumNav() {
               <Link
                 key={l.label}
                 to={l.to}
-                hash={l.hash}
+                {...(l.hash ? { hash: l.hash } : {})}
                 onClick={() => setMenu(false)}
                 className="group relative font-display text-3xl text-foreground"
               >
