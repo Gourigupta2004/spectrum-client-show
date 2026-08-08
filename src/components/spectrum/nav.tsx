@@ -43,7 +43,7 @@ export function SpectrumNav() {
         className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
       >
         <div
-          className={`flex items-center gap-7 rounded-full px-5 py-2.5 transition-all duration-500 md:gap-10 md:px-7 ${
+          className={`flex items-center gap-6 rounded-full px-4 py-2.5 transition-all duration-500 md:gap-9 md:px-6 ${
             scrolled ? "glass spectrum-border shadow-2xl" : ""
           }`}
         >
