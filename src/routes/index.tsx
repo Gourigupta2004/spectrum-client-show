@@ -108,7 +108,7 @@ function Home() {
           <h1 className="font-display text-[clamp(2.2rem,6vw,4.6rem)] leading-[1.05] text-foreground">
             Every Moment, <span className="spectrum-text">Yours</span> Forever
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">
+          <p className="mx-auto mt-4 max-w-xl text-sm font-medium text-foreground/85 md:text-base">
             Spectrum captures school and college events. Browse, choose, and own your memories.
           </p>
         </motion.div>
@@ -133,7 +133,7 @@ function Home() {
           </button>
         </div>
 
-        <h2 className="mt-16 text-center font-display text-xs uppercase tracking-[0.28em] text-muted-foreground">
+        <h2 className="mt-16 text-center font-display text-xs font-semibold uppercase tracking-[0.28em] text-foreground/80">
           Browse by Institution
         </h2>
         <div className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-8 overflow-x-auto px-1 pb-2 md:justify-center">
@@ -143,7 +143,7 @@ function Home() {
               onClick={() => onInstitution(inst.id)}
               className="group flex w-28 shrink-0 snap-center flex-col items-center gap-3"
             >
-              <span className="spectrum-border relative block h-24 w-24 rounded-full p-[3px] transition-all duration-400 group-hover:-translate-y-1 group-hover:shadow-[0_16px_40px_-14px_rgba(139,92,246,0.7)]">
+              <span className="spectrum-border spectrum-border-thick relative block h-24 w-24 rounded-full p-[3px] transition-all duration-400 group-hover:-translate-y-1 group-hover:shadow-[0_16px_40px_-14px_rgba(139,92,246,0.7)]">
                 <img
                   src={inst.image}
                   alt={inst.name}
@@ -175,7 +175,7 @@ function Home() {
           ].map((s) => (
             <div key={s.label}>
               <Counter to={s.to} suffix={s.suffix} />
-              <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
+              <p className="mt-2 text-sm font-medium text-foreground/85">{s.label}</p>
             </div>
           ))}
         </div>
@@ -184,7 +184,7 @@ function Home() {
       {/* HOW IT WORKS */}
       <section id="how" className="relative scroll-mt-24 py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center font-display text-3xl text-foreground md:text-4xl">
+          <h2 className="text-center font-display text-3xl font-semibold text-foreground md:text-4xl">
             How It Works
           </h2>
           <div className="mt-14 grid gap-12 md:grid-cols-3">
@@ -197,12 +197,12 @@ function Home() {
                 transition={{ duration: 0.55, delay: i * 0.12 }}
                 className="text-center"
               >
-                <span className="spectrum-border mx-auto grid h-16 w-16 place-items-center rounded-full">
+                <span className="spectrum-border spectrum-border-thick mx-auto grid h-16 w-16 place-items-center rounded-full">
                   <s.icon className="h-6 w-6 text-teal" />
                 </span>
                 <p className="mt-5 spectrum-text font-display text-sm tracking-[0.2em]">{s.n}</p>
-                <h3 className="mt-1 font-display text-xl text-foreground">{s.title}</h3>
-                <p className="mx-auto mt-2 max-w-xs text-sm text-muted-foreground">{s.body}</p>
+                <h3 className="mt-1 font-display text-xl font-semibold text-foreground">{s.title}</h3>
+                <p className="mx-auto mt-2 max-w-xs text-sm font-medium text-foreground/85">{s.body}</p>
               </motion.div>
             ))}
           </div>
@@ -219,7 +219,7 @@ function Home() {
           delay={3}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6">
-          <h2 className="font-display text-3xl text-foreground md:text-4xl">Recently Captured</h2>
+          <h2 className="font-display text-3xl font-semibold text-foreground md:text-4xl">Recently Captured</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {events.slice(0, 6).map((e, i) => (
               <EventCard key={e.slug} event={e} index={i} />

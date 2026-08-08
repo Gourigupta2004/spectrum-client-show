@@ -62,8 +62,7 @@ export function HeroCarousel() {
               transform: `translate(-50%,-50%) translateX(${offset * 58}%) scale(${
                 1 - abs * 0.13
               }) rotateY(${offset * -26}deg)`,
-              filter: `blur(${abs * 1.7}px)`,
-              opacity: hidden ? 0 : 1 - abs * 0.2,
+              opacity: hidden ? 0 : 1 - abs * 0.12,
               zIndex: 20 - abs,
               pointerEvents: hidden ? "none" : "auto",
             }}
@@ -76,7 +75,7 @@ export function HeroCarousel() {
                 className="undraggable h-full w-full rounded-2xl object-cover"
               />
               {abs === 0 && (
-                <span className="absolute inset-x-0 bottom-0 z-[2] bg-gradient-to-t from-[#1C1A22] to-transparent p-4 text-left font-display text-sm text-foreground">
+                <span className="absolute inset-x-0 bottom-0 z-[2] bg-gradient-to-t from-[#1C1A22] to-transparent p-4 text-left font-display text-sm font-semibold text-foreground">
                   {s.caption}
                 </span>
               )}
