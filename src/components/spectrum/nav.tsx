@@ -71,7 +71,7 @@ export function SpectrumNav() {
                   key={l.label}
                   to={l.to}
                   {...(l.hash ? { hash: l.hash } : {})}
-                  className="group relative font-display text-[0.72rem] uppercase tracking-[0.22em] text-foreground/90 transition-colors hover:text-foreground"
+                  className="group relative font-display text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:text-foreground"
                 >
                   {l.label}
                   <span
@@ -127,7 +127,7 @@ export function SpectrumNav() {
                 to={l.to}
                 {...(l.hash ? { hash: l.hash } : {})}
                 onClick={() => setMenu(false)}
-                className="group relative font-display text-3xl text-foreground"
+                className="group relative font-display text-3xl font-semibold text-foreground"
               >
                 {l.label}
                 <span className="spectrum-hairline absolute -bottom-2 left-0 w-full scale-x-0 transition-transform duration-300 group-active:scale-x-100" />
