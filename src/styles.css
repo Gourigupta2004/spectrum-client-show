@@ -5,17 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Spectrum design system — "Spectrum in the Dark"
+ * Single consistent moderately-dark canvas + animated Spectrum Gradient accents.
+ * Gradient stops sampled from the supplied logo file.
  */
 
 @theme inline {
@@ -28,6 +20,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -45,100 +38,242 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-teal: var(--teal);
+  --color-violet: var(--violet);
+  --color-amber: var(--sp-yellow);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
+  --radius: 0.875rem;
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  /* consistent moderately-dark canvas */
+  --background: oklch(0.242 0.017 305);
+  --surface: oklch(0.215 0.017 305);
+  --foreground: oklch(0.965 0.005 85);
+  --card: oklch(0.262 0.016 305);
+  --card-foreground: oklch(0.965 0.005 85);
+  --popover: oklch(0.215 0.017 305);
+  --popover-foreground: oklch(0.965 0.005 85);
+  --primary: oklch(0.72 0.15 165);
+  --primary-foreground: oklch(0.18 0.015 305);
+  --secondary: oklch(0.3 0.018 305);
+  --secondary-foreground: oklch(0.965 0.005 85);
+  --muted: oklch(0.3 0.018 305);
+  --muted-foreground: oklch(0.8 0.017 305);
+  --accent: oklch(0.32 0.02 305);
+  --accent-foreground: oklch(0.965 0.005 85);
+  --destructive: oklch(0.6 0.2 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.62 0.19 300);
+
+  /* logo-sampled ribbon stops */
+  --sp-yellow: #f7c21f;
+  --sp-orange: #f5973b;
+  --sp-red: #e8503a;
+  --sp-green: #5eb746;
+  --sp-teal: #2fbf8f;
+  --sp-blue: #3f6fa1;
+  --sp-violet: #8b5cf6;
+  --sp-magenta: #b94c9e;
+
+  --teal: #2fbf8f;
+  --violet: #8b5cf6;
+
+  --spectrum-gradient: linear-gradient(
+    90deg,
+    var(--sp-yellow),
+    var(--sp-orange),
+    var(--sp-red),
+    var(--sp-green),
+    var(--sp-teal),
+    var(--sp-blue),
+    var(--sp-violet),
+    var(--sp-magenta),
+    var(--sp-yellow)
+  );
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
   }
-
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+  ::selection {
+    background: var(--sp-violet);
+    color: #fff;
+  }
+}
+
+/* ---------- animated spectrum gradient primitives ---------- */
+
+@keyframes spectrum-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes orb-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -4%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-12deg);
+  }
+}
+
+@keyframes burst-pulse {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* gradient text-fill */
+@utility spectrum-text {
+  background-image: var(--spectrum-gradient);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: spectrum-pan 9s linear infinite;
+}
+
+/* gradient filled surface (buttons, badges, icons) */
+@utility spectrum-fill {
+  background-image: var(--spectrum-gradient);
+  background-size: 200% 100%;
+  animation: spectrum-pan 9s linear infinite;
+  color: #fff;
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+
+  &:hover {
+    animation-duration: 3s;
+    box-shadow: 0 0 32px -6px color-mix(in oklab, var(--sp-violet) 70%, transparent);
+    transform: translateY(-2px);
+  }
+}
+
+/* animated gradient hairline border via padding box trick */
+@utility spectrum-border {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background-image: var(--spectrum-gradient);
+    background-size: 200% 100%;
+    animation: spectrum-pan 9s linear infinite;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    animation-duration: 3s;
+  }
+}
+
+@utility spectrum-border-thick {
+  &::before {
+    padding: 2px;
+  }
+}
+
+@utility spectrum-hairline {
+  height: 1px;
+  background-image: var(--spectrum-gradient);
+  background-size: 200% 100%;
+  animation: spectrum-pan 9s linear infinite;
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--color-surface) 70%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+@utility orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: orb-drift 26s ease-in-out infinite;
+  z-index: 0;
+}
+
+@utility grain {
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility undraggable {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
