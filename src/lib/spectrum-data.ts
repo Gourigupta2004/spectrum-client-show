@@ -22,7 +22,7 @@ const POOL = [
   "1567168544813-cc03465b4fa8",
 ];
 
-export const pick = (i: number) => POOL[i % POOL.length];
+export const pick = (i: number): string => POOL[i % POOL.length] as string;
 
 export type Institution = {
   id: string;
