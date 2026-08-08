@@ -39,7 +39,7 @@ function GalleryPage() {
   const price = bundle ? BUNDLE_PRICE : chosen.length * galleryEvent.pricePerMoment;
 
   useEffect(() => setCount(selected.length), [selected.length, setCount]);
-  useEffect(() => setOpenCheckout(() => () => setOpen(true)), [setOpenCheckout]);
+  useEffect(() => setOpenCheckout(() => setOpen(true)), [setOpenCheckout]);
   useEffect(() => () => setCount(0), [setCount]);
 
   useEffect(() => {
