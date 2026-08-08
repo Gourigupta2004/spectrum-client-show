@@ -7,9 +7,10 @@ import { useSelection } from "./selection-context";
 
 const links = [
   { label: "Events", to: "/events" as const },
-  { label: "How It Works", to: "/", hash: "how" },
-  { label: "Contact", to: "/", hash: "contact" },
+  { label: "How It Works", to: "/how-it-works" as const },
+  { label: "Contact", to: "/contact" as const },
 ];
+
 
 export function SpectrumNav() {
   const [scrolled, setScrolled] = useState(false);
@@ -64,15 +65,14 @@ export function SpectrumNav() {
 
           <div className="hidden items-center gap-8 md:flex">
             {links.map((l) => {
-              const active =
-                l.to === "/events" ? pathname.startsWith("/events") : pathname === "/" && !l.hash;
+              const active = pathname === l.to || pathname.startsWith(`${l.to}/`);
               return (
                 <Link
                   key={l.label}
                   to={l.to}
-                  {...(l.hash ? { hash: l.hash } : {})}
                   className="group relative font-display text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:text-foreground"
                 >
+
                   {l.label}
                   <span
                     className={`spectrum-hairline absolute -bottom-1.5 left-0 w-full origin-left transition-transform duration-300 ${
@@ -125,8 +125,8 @@ export function SpectrumNav() {
               <Link
                 key={l.label}
                 to={l.to}
-                {...(l.hash ? { hash: l.hash } : {})}
                 onClick={() => setMenu(false)}
+
                 className="group relative font-display text-3xl font-semibold text-foreground"
               >
                 {l.label}
