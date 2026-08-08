@@ -190,7 +190,7 @@ export const moments: Moment[] = MOMENTS.map(([title, photos], i) => ({
   image: IMG(pick(i + 3), 800, 1000),
 }));
 
-export const galleryEvent = events[0];
+export const galleryEvent = events[0] as SpectrumEvent;
 export const BUNDLE_PRICE = 299;
 
 export const heroSlides = [4, 5, 11, 13, 6, 9, 15, 3].map((i, k) => ({
