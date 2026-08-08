@@ -1,4 +1,12 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 
 type Ctx = {
   count: number;
@@ -16,16 +24,16 @@ const SelectionContext = createContext<Ctx>({
 
 export function SelectionProvider({ children }: { children: ReactNode }) {
   const [count, setCount] = useState(0);
-  const [opener, setOpener] = useState<{ fn: () => void }>({ fn: () => {} });
+  const opener = useRef<() => void>(() => {});
+
+  const openCheckout = useCallback(() => opener.current(), []);
+  const setOpenCheckout = useCallback((fn: () => void) => {
+    opener.current = fn;
+  }, []);
 
   const value = useMemo<Ctx>(
-    () => ({
-      count,
-      setCount,
-      openCheckout: () => opener.fn(),
-      setOpenCheckout: (fn: () => void) => setOpener({ fn }),
-    }),
-    [count, opener],
+    () => ({ count, setCount, openCheckout, setOpenCheckout }),
+    [count, openCheckout, setOpenCheckout],
   );
 
   return <SelectionContext.Provider value={value}>{children}</SelectionContext.Provider>;
