@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import logoLight from "@/assets/spectrum-logo-light.png.asset.json";
 import mark from "@/assets/spectrum-mark.png.asset.json";
 import { useSelection } from "./selection-context";
+import { useIntro } from "./intro-context";
 
 const links = [
   { label: "Events", to: "/events" as const },
@@ -17,6 +18,7 @@ export function SpectrumNav() {
   const [dim, setDim] = useState(false);
   const [menu, setMenu] = useState(false);
   const { count, openCheckout } = useSelection();
+  const { navLogoVisible } = useIntro();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
