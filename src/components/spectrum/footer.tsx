@@ -43,8 +43,17 @@ export function Footer() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link
+                to="/portal"
+                className="text-muted-foreground transition-colors hover:text-teal"
+              >
+                Institution Login
+              </Link>
+            </li>
 
           </ul>
+
         </div>
 
         <div id="contact" className="md:justify-self-end">
