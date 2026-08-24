@@ -22,9 +22,9 @@ export function BrandIntro() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Decide on mount (client only, avoids hydration mismatch).
+  // The intro plays on every page load.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(FLAG) === "true") return;
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     setReduced(prefersReduced);
     setNavLogoVisible(false);
@@ -40,7 +40,8 @@ export function BrandIntro() {
       sessionStorage.setItem(FLAG, "true");
       setPhase("handoff");
       queueMicrotask(() => setNavLogoVisible(true));
-      window.setTimeout(() => setPhase("done"), ms + 260);
+      // hold the crossfade, then dissolve the stage away slowly
+      window.setTimeout(() => setPhase("done"), ms + FADE_OUT + 120);
     },
     [setNavLogoVisible],
   );
