@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import logoLight from "@/assets/spectrum-logo-light.png.asset.json";
 import mark from "@/assets/spectrum-mark.png.asset.json";
 import { useSelection } from "./selection-context";
+import { useIntro } from "./intro-context";
 
 const links = [
   { label: "Events", to: "/events" as const },
@@ -17,6 +18,7 @@ export function SpectrumNav() {
   const [dim, setDim] = useState(false);
   const [menu, setMenu] = useState(false);
   const { count, openCheckout } = useSelection();
+  const { navLogoVisible } = useIntro();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
@@ -48,19 +50,25 @@ export function SpectrumNav() {
             scrolled ? "glass spectrum-border shadow-2xl" : ""
           }`}
         >
-          <Link to="/" className="flex shrink-0 items-center" aria-label="Spectrum home">
-            <img
-              src={logoLight.url}
-              alt="Spectrum"
-              className="hidden h-6 w-auto md:block"
-              draggable={false}
-            />
-            <img
-              src={mark.url}
-              alt="Spectrum"
-              className="h-6 w-auto md:hidden"
-              draggable={false}
-            />
+          <Link to="/" className="flex h-6 shrink-0 items-center" aria-label="Spectrum home">
+            {navLogoVisible && (
+              <>
+                <motion.img
+                  layoutId="spectrum-navlogo"
+                  transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+                  src={logoLight.url}
+                  alt="Spectrum"
+                  className="hidden h-6 w-auto md:block"
+                  draggable={false}
+                />
+                <img
+                  src={mark.url}
+                  alt="Spectrum"
+                  className="h-6 w-auto md:hidden"
+                  draggable={false}
+                />
+              </>
+            )}
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
