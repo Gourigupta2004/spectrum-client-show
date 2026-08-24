@@ -27,7 +27,7 @@ export function StatusPill({
   if (status === "needs-correction") {
     return (
       <span
-        className={`${base} border border-[#e8503a] text-[#ff9b6a] ${className}`}
+        className={`${base} border border-[#e8503a] bg-[#221f29]/85 text-[#ff9b6a] backdrop-blur-sm ${className}`}
       >
         {captionStatusLabel[status]}
       </span>
@@ -35,7 +35,7 @@ export function StatusPill({
   }
 
   return (
-    <span className={`${base} border border-violet text-[#c4b1ff] ${className}`}>
+    <span className={`${base} border border-violet bg-[#221f29]/85 text-[#c4b1ff] backdrop-blur-sm ${className}`}>
       {captionStatusLabel[status]}
     </span>
   );
