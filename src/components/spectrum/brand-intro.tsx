@@ -31,16 +31,16 @@ export function BrandIntro() {
     setPhase("playing");
   }, [setNavLogoVisible]);
 
+  const finishedRef = useRef(false);
   const finish = useCallback(
     (ms: number) => {
-      setPhase((p) => {
-        if (p !== "playing") return p;
-        handoffMs.current = ms;
-        sessionStorage.setItem(FLAG, "true");
-        setNavLogoVisible(true);
-        window.setTimeout(() => setPhase("done"), ms + 260);
-        return "handoff";
-      });
+      if (finishedRef.current) return;
+      finishedRef.current = true;
+      handoffMs.current = ms;
+      sessionStorage.setItem(FLAG, "true");
+      setNavLogoVisible(true);
+      setPhase("handoff");
+      window.setTimeout(() => setPhase("done"), ms + 260);
     },
     [setNavLogoVisible],
   );
