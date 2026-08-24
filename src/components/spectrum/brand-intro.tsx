@@ -38,8 +38,8 @@ export function BrandIntro() {
       finishedRef.current = true;
       handoffMs.current = ms;
       sessionStorage.setItem(FLAG, "true");
-      setNavLogoVisible(true);
       setPhase("handoff");
+      queueMicrotask(() => setNavLogoVisible(true));
       window.setTimeout(() => setPhase("done"), ms + 260);
     },
     [setNavLogoVisible],
