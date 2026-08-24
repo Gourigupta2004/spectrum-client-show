@@ -1,0 +1,42 @@
+import { Check, PencilLine } from "lucide-react";
+import { captionStatusLabel, type CaptionStatus } from "@/lib/caption-data";
+
+export function StatusPill({
+  status,
+  className = "",
+}: {
+  status: CaptionStatus;
+  className?: string;
+}) {
+  const base =
+    "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.12em]";
+
+  if (status === "approved" || status === "corrected") {
+    return (
+      <span className={`${base} bg-teal text-[#10281f] ${className}`}>
+        {status === "approved" ? (
+          <Check className="h-3.5 w-3.5" />
+        ) : (
+          <PencilLine className="h-3.5 w-3.5" />
+        )}
+        {captionStatusLabel[status]}
+      </span>
+    );
+  }
+
+  if (status === "needs-correction") {
+    return (
+      <span
+        className={`${base} border border-[#e8503a] text-[#ff9b6a] ${className}`}
+      >
+        {captionStatusLabel[status]}
+      </span>
+    );
+  }
+
+  return (
+    <span className={`${base} border border-violet text-[#c4b1ff] ${className}`}>
+      {captionStatusLabel[status]}
+    </span>
+  );
+}
