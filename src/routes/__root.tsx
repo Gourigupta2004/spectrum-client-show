@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -14,7 +15,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SpectrumNav } from "@/components/spectrum/nav";
 import { Footer } from "@/components/spectrum/footer";
 import { SelectionProvider } from "@/components/spectrum/selection-context";
-import { IntroProvider } from "@/components/spectrum/intro-context";
+import { IntroProvider, useIntro } from "@/components/spectrum/intro-context";
+
 import { BrandIntro } from "@/components/spectrum/brand-intro";
 
 function NotFoundComponent() {
