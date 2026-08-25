@@ -180,8 +180,8 @@ export function BrandIntro() {
               </div>
             </motion.div>
           )}
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+
 
         <AnimatePresence>
           {showSkip && !closing && (
