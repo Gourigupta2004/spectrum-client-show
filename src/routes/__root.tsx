@@ -125,20 +125,47 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function SiteShell() {
+  const { contentHidden } = useIntro();
+  return (
+    <>
+      <BrandIntro key="brand-intro" />
+      <div
+        style={{
+          opacity: contentHidden ? 0 : 1,
+          pointerEvents: contentHidden ? "none" : "auto",
+        }}
+      >
+        <SpectrumNav />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Footer />
+      </div>
+    </>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const isHome = useRouterState({ select: (s) => s.location.pathname === "/" });
 
   return (
     <QueryClientProvider client={queryClient}>
-      <IntroProvider>
-        <SelectionProvider>
-          <BrandIntro />
-          <SpectrumNav />
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
-          <Footer />
-        </SelectionProvider>
+      <IntroProvider initialContentHidden={isHome}>
+        <SelectionProvider>{isHome ? <SiteShell /> : <PlainShell />}</SelectionProvider>
       </IntroProvider>
     </QueryClientProvider>
   );
 }
+
+function PlainShell() {
+  return (
+    <>
+      <SpectrumNav />
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+      <Footer />
+    </>
+  );
+}
+
