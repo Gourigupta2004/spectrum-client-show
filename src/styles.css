@@ -143,6 +143,15 @@
   }
 }
 
+@keyframes ribbon-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 280% 50%;
+  }
+}
+
 @keyframes shimmer-sweep {
   0% {
     transform: translateX(-120%) skewX(-12deg);
