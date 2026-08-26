@@ -105,7 +105,14 @@ function GalleryPage() {
                   className="undraggable absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
                 <span className="pointer-events-none absolute inset-0 grid place-items-center">
-                  <span className="rotate-[-24deg] text-[0.72rem] font-bold uppercase tracking-[0.42em] text-white/70 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)] md:text-sm">
+                  <span
+                    className="rotate-[-24deg] text-sm font-black uppercase tracking-[0.5em] text-white/95 md:text-lg"
+                    style={{
+                      textShadow:
+                        "0 0 2px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.7)",
+                      WebkitTextStroke: "0.5px rgba(255,255,255,0.35)",
+                    }}
+                  >
                     Spectrum — Preview Only
                   </span>
                 </span>
