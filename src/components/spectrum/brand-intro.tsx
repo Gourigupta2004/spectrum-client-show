@@ -11,8 +11,8 @@ const SLOW_RATE = 0.7;
 const SLOW_UNTIL = 1400;
 
 /** Closing beat: fade in -> hold -> fade out, one continuous motion. */
-const FULL = { in: 0.48, hold: 720, out: 0.95 };
-const QUICK = { in: 0.16, hold: 90, out: 0.3 };
+const FULL = { in: 0.42, hold: 320, out: 0.9 };
+const QUICK = { in: 0.16, hold: 60, out: 0.28 };
 
 const ORBS: { colors: [string, string]; size: number; x: string; y: string; delay: number }[] = [
   { colors: ["#FFC93C", "#FF8A3D"], size: 520, x: "22%", y: "28%", delay: 0.05 },
@@ -147,33 +147,33 @@ export function BrandIntro() {
               ))}
 
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative overflow-hidden">
+                <div className="relative">
                   <motion.img
                     src={mark.url}
                     alt=""
                     draggable={false}
                     className="h-24 w-auto md:h-36"
-                    animate={{
-                      filter: [
-                        "drop-shadow(0 0 22px rgba(124,77,224,0.18))",
-                        "drop-shadow(0 0 40px rgba(214,51,154,0.32))",
-                        "drop-shadow(0 0 22px rgba(124,77,224,0.18))",
-                      ],
-                      scale: [1, 1.02, 1],
-                    }}
+                    animate={{ scale: [1, 1.02, 1] }}
                     transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
                   />
-                  {/* one soft light sweep, echoing the video's opening ray */}
-                  <motion.span
-                    className="pointer-events-none absolute inset-y-[-40%] w-1/2"
-                    initial={{ x: "-160%" }}
-                    animate={{ x: "220%" }}
-                    transition={{ duration: 1.2, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+                  {/* running ribbon: spectrum colors flow through the mark, as if the S is being painted */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0"
                     style={{
                       background:
-                        "linear-gradient(105deg, transparent, rgba(255,255,255,0.42), transparent)",
-                      filter: "blur(6px)",
-                      mixBlendMode: "overlay",
+                        "linear-gradient(115deg, transparent 20%, rgba(255,201,60,0.95) 34%, rgba(232,80,58,0.9) 46%, rgba(47,191,143,0.9) 58%, rgba(124,77,224,0.95) 70%, rgba(214,51,154,0.9) 80%, transparent 92%)",
+                      backgroundSize: "280% 280%",
+                      WebkitMaskImage: `url(${mark.url})`,
+                      maskImage: `url(${mark.url})`,
+                      WebkitMaskSize: "contain",
+                      maskSize: "contain",
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskPosition: "center",
+                      maskPosition: "center",
+                      mixBlendMode: "screen",
+                      animation: "ribbon-flow 2.4s linear infinite",
                     }}
                   />
                 </div>
