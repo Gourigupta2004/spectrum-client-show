@@ -110,6 +110,9 @@ export function BrandIntro() {
           transition={{ duration: closing ? beat.in * 0.7 : 0.45, ease: "easeInOut" }}
           onError={() => startClosing(true)}
           onEnded={() => startClosing(false)}
+          onTimeUpdate={(e) => {
+            if (e.currentTarget.currentTime >= 7.3) startClosing(false);
+          }}
         >
           <source src={introWebm.url} type="video/webm" />
           <source src={introMp4.url} type="video/mp4" />
