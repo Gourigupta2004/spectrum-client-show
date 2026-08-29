@@ -74,13 +74,18 @@ export function BrandIntro() {
         animate={{ opacity: exiting ? 0 : 1 }}
         transition={{ duration: FADE, ease: [0.4, 0, 0.2, 1] }}
       >
-        {/* poster paints instantly under the video */}
+        {/* poster paints instantly, then hands off to the video */}
         <img
           src={introPoster.url}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ mixBlendMode: "screen" }}
+          style={{
+            mixBlendMode: "screen",
+            opacity: playing ? 0 : 1,
+            transition: "opacity 200ms ease",
+          }}
         />
+
 
         <motion.video
           ref={videoRef}
