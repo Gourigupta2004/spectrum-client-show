@@ -8,7 +8,7 @@ import { useIntro } from "./intro-context";
 /** Stage background: a touch deeper than the site base (#221F29). */
 const STAGE_BG = "#1B1922";
 
-const CUT_AT = 2.0; // seconds — stop right after the "S" settles
+const CUT_AT = 1.75; // seconds — stop right as the "S" lands center, before the wordmark
 const HARD_FALLBACK = 3200; // ms safety net
 const HOLD = 300; // ms hold on the centered mark
 const FADE = 1.0; // s dissolve into the homepage
