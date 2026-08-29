@@ -26,6 +26,7 @@ export function BrandIntro() {
   const { setContentHidden } = useIntro();
   const [phase, setPhase] = useState<Phase>("video");
   const [showSkip, setShowSkip] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const closedRef = useRef(false);
 
@@ -99,6 +100,7 @@ export function BrandIntro() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, scale: exiting ? 1.015 : 1 }}
           transition={{ duration: exiting ? FADE : 0.35, ease: "easeInOut" }}
+          onPlaying={() => setPlaying(true)}
           onError={() => startClosing(true)}
           onEnded={() => startClosing(false)}
           onTimeUpdate={(e) => {
