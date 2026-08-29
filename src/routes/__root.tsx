@@ -136,6 +136,7 @@ function SiteShell() {
         style={{
           opacity: contentHidden ? 0 : 1,
           pointerEvents: contentHidden ? "none" : "auto",
+          transition: "opacity 900ms cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
         <SpectrumNav />
