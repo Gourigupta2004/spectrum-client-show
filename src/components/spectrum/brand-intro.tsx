@@ -78,13 +78,13 @@ export function BrandIntro() {
         <img
           src={introPoster.url}
           alt=""
-          className="absolute inset-0 h-full w-full object-contain"
+          className="absolute inset-0 h-full w-full object-cover"
           style={{ mixBlendMode: "screen" }}
         />
 
         <motion.video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-contain"
+          className="absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           playsInline
